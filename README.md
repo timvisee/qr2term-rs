@@ -12,6 +12,9 @@ fn main() {
 }
 ```
 
+Produces:
+![qr2term example screenshot](./res/qr2term-example.png)
+
 This library is based on [`qair`](https://code.willemp.be/willem/qair),
 which didn't provide the renderer as a library on it's own.
 Credits for the actual renderer go to it's developer.
