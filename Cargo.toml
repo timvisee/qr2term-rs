@@ -1,0 +1,9 @@
+[package]
+name = "qr2term"
+version = "0.1.0"
+authors = ["timvisee <tim@visee.me>"]
+edition = "2018"
+
+[dependencies]
+crossterm = { version = "0.6", default-features = false, features = ["style"] }
+qrcode = { version = "0.9", default-features = false }
