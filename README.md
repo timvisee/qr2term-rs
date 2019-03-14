@@ -4,12 +4,12 @@
 [![Number of downloads on crates.io][crate-download-badge]][crate-link]
 [![Project license][crate-license-badge]](LICENSE)
 
-[crate-download-badge]: https://img.shields.io/crates/d/qr2term-rs.svg
-[crate-license-badge]: https://img.shields.io/crates/l/qr2term-rs.svg
-[crate-link]: https://crates.io/crates/qr2term-rs
-[crate-version-badge]: https://img.shields.io/crates/v/qr2term-rs.svg
-[docs-badge]: https://docs.rs/qr2term-rs/badge.svg
-[docs]: https://docs.rs/qr2term-rs
+[crate-download-badge]: https://img.shields.io/crates/d/qr2term.svg
+[crate-license-badge]: https://img.shields.io/crates/l/qr2term.svg
+[crate-link]: https://crates.io/crates/qr2term
+[crate-version-badge]: https://img.shields.io/crates/v/qr2term.svg
+[docs-badge]: https://docs.rs/qr2term/badge.svg
+[docs]: https://docs.rs/qr2term
 [gitlab-ci-link]: https://gitlab.com/timvisee/qr2term-rs/pipelines
 [gitlab-ci-master-badge]: https://gitlab.com/timvisee/qr2term-rs/badges/master/pipeline.svg
 
