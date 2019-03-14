@@ -11,11 +11,11 @@
 use std::sync::Arc;
 
 use crossterm::{style, Color, TerminalOutput};
-use qrcode::{
-    QrCode,
-    types::Color::{self as QrColor, Dark as QrDark, Light as QrLight},
-};
 pub use qrcode::types::QrError;
+use qrcode::{
+    types::Color::{self as QrColor, Dark as QrDark, Light as QrLight},
+    QrCode,
+};
 
 /// Quiet zone size in pixels around QR code.
 ///
@@ -112,11 +112,7 @@ impl Renderer {
     /// # Panics
     ///
     /// Panics if the given matrix of `pixels` doens't have a length that is a multiple of 2.
-    fn surround_quiet<T: Copy>(
-        pixels: &[T],
-        thickness: usize,
-        quiet: T,
-    ) -> Vec<T> {
+    fn surround_quiet<T: Copy>(pixels: &[T], thickness: usize, quiet: T) -> Vec<T> {
         // Calculate widths
         let width = usize_sqrt(pixels.len());
         let out_width = width + thickness * 2;
@@ -196,23 +192,16 @@ mod tests {
     #[test]
     #[should_panic]
     fn print_matrix_incorrect_size() {
-        Renderer::new().print_matrix(&vec![
-            QrDark,
-            QrDark,
-            QrLight,
-            QrLight,
-            QrLight,
-            QrDark,
-        ]);
+        Renderer::new().print_matrix(&vec![QrDark, QrDark, QrLight, QrLight, QrLight, QrDark]);
     }
 
     #[test]
     fn surround_quiet_normal() {
         let input = vec![0, 1, 2, 3, 4, 5, 6, 7, 8];
         let expected = vec![
-            9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
-            9, 9, 0, 1, 2, 9, 9, 9, 9, 9, 9, 3, 4, 5, 9, 9, 9, 9, 9, 9, 6, 7, 8, 9, 9, 9, 9, 9,
-            9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+            9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+            9, 0, 1, 2, 9, 9, 9, 9, 9, 9, 3, 4, 5, 9, 9, 9, 9, 9, 9, 6, 7, 8, 9, 9, 9, 9, 9, 9, 9,
+            9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
         ];
         let actual = Renderer::surround_quiet(&input, 3, 9);
         assert_eq!(expected, actual);
@@ -228,9 +217,9 @@ mod tests {
     /// Generating QR codes for text that is too large should fail.
     #[test]
     fn print_qr_too_long() {
-        print_qr(
-            &String::from_utf8(vec![b'a'; 8000]).unwrap(),
-        ).err().unwrap();
+        print_qr(&String::from_utf8(vec![b'a'; 8000]).unwrap())
+            .err()
+            .unwrap();
     }
 }
 
