@@ -2,11 +2,28 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-//! Simple QR code renderer in the terminal.
+//! A stupidly simple QR code renderer, that prints text as QR code to the terminal,
+//! and nothing else.
 //!
-//! This is based on:
-//! - https://crates.io/crates/qair
-//! - https://code.willemp.be/willem/qair/src/branch/master/src/console_barcode_renderer.rs
+//! # Examples
+//! [`example.rs`](./example/example.rs):
+//! ```rust
+//! use qr2term::print_qr;
+//!
+//! fn main() {
+//!     print_qr("https://rust-lang.org/");
+//! }
+//! ```
+//!
+//! ![qr2term example screenshot](./res/qr2term-example.png)
+//!
+//! # Based on
+//! This library is based on [`qair`](https://code.willemp.be/willem/qair),
+//! which didn't provide the renderer as a library on it's own.
+//! Credits for the actual renderer go to it's developer.
+//!
+//! - [https://crates.io/crates/qair](https://crates.io/crates/qair)
+//! - [https://code.willemp.be/willem/qair/src/branch/master/src/console_barcode_renderer.rs](https://code.willemp.be/willem/qair/src/branch/master/src/console_barcode_renderer.rs)
 
 use std::sync::Arc;
 
