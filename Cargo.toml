@@ -1,8 +1,27 @@
 [package]
 name = "qr2term"
 version = "0.1.0"
-authors = ["timvisee <tim@visee.me>"]
+authors = ["Tim Visée <tim@visee.me>"]
+license = "MPL-2.0"
+readme = "README.md"
+homepage = "https://github.com/timvisee/qr2term-rs"
+repository = "https://github.com/timvisee/qr2term-rs"
+documentation = "https://docs.rs/qr2term"
+description = "Stupidly simple Rust crate to render a QR code in the terminal."
+keywords = ["qrcode", "terminal", "qr", "code"]
+categories = [
+    "algorithms",
+    "rendering",
+    "visualization",
+]
 edition = "2018"
+
+[badges]
+gitlab = { repository = "timvisee/qr2term-rs", branch = "master" }
+
+[lib]
+name = "qr2term"
+path = "src/lib.rs"
 
 [dependencies]
 crossterm = { version = "0.6", default-features = false, features = ["style"] }
