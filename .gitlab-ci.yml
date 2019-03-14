@@ -1,0 +1,69 @@
+image: "rust:slim"
+
+stages:
+  - check
+  - test
+  - release
+  - trigger
+
+variables:
+  RUST_VERSION: stable
+
+# Cache rust/cargo/build artifacts
+cache:
+  key: "$CI_PIPELINE_ID-$RUST_VERSION"
+  paths:
+    - /usr/local/cargo/registry/
+    - /usr/local/rustup/toolchains/
+    - /usr/local/rustup/update-hashes/
+    - target/
+
+# Install selected Rust version
+before_script:
+  - |
+    rustup install $RUST_VERSION
+    rustup default $RUST_VERSION
+  - |
+    rustc --version
+    cargo --version
+
+# Variable defaults
+variables:
+  RUST_VERSION: stable
+
+# Check on stable, beta and nightly 
+.check-base: &check-base
+  stage: check
+  script:
+    - cargo check --verbose
+rust-stable:
+  <<: *check-base
+rust-beta:
+  <<: *check-base
+  variables:
+    RUST_VERSION: beta
+rust-nightly:
+  <<: *check-base
+  variables:
+    RUST_VERSION: nightly
+rust-old:
+  <<: *check-base
+  variables:
+    RUST_VERSION: "1.32.0"
+
+# Run the unit tests through Cargo
+cargo-test:
+  stage: test
+  script:
+    - cargo test --verbose
+
+# Cargo crate release
+crate:
+  stage: release
+  only:
+    - /^v(\d+\.)*\d+.*$/
+  script:
+    - echo "Creating release crate on crates.io..."
+    - echo $CARGO_TOKEN | cargo login
+    - echo "Publishing crate to crates.io..."
+    - cargo publish --verbose
