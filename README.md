@@ -1,10 +1,9 @@
 # Rust library: qr2term
-A stupidly simple QR code renderer for in the terminal.
+A stupidly simple QR code renderer, that prints text as QR code to the terminal,
+and nothing else.
 
 [`example.rs`](./example/example.rs):
 ```rust
-extern crate qr2term;
-
 use qr2term::print_qr;
 
 fn main() {
@@ -12,7 +11,6 @@ fn main() {
 }
 ```
 
-Produces:
 ![qr2term example screenshot](./res/qr2term-example.png)
 
 This library is based on [`qair`](https://code.willemp.be/willem/qair),
