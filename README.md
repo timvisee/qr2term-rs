@@ -17,7 +17,7 @@
 A stupidly simple QR code renderer, that prints text as QR code to the terminal,
 and nothing else.
 
-[`example.rs`](./example/example.rs):
+[`example.rs`](./examples/example.rs):
 ```rust
 use qr2term::print_qr;
 
