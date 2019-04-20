@@ -25,9 +25,7 @@
 //! - [https://crates.io/crates/qair](https://crates.io/crates/qair)
 //! - [https://code.willemp.be/willem/qair/src/branch/master/src/console_barcode_renderer.rs](https://code.willemp.be/willem/qair/src/branch/master/src/console_barcode_renderer.rs)
 
-use std::sync::Arc;
-
-use crossterm::{style, Color, TerminalOutput};
+use crossterm::Colorize;
 pub use qrcode::types::QrError;
 use qrcode::{
     types::Color::{self as QrColor, Dark as QrDark, Light as QrLight},
@@ -52,17 +50,12 @@ pub fn print_qr(text: &str) -> Result<(), QrError> {
 }
 
 ///! QR barcode terminal renderer.
-struct Renderer {
-    /// The screen to output to.
-    screen: Arc<TerminalOutput>,
-}
+struct Renderer {}
 
 impl Renderer {
     /// Construct a new renderer.
     pub fn new() -> Self {
-        Renderer {
-            screen: Arc::new(TerminalOutput::default()),
-        }
+        Renderer {}
     }
 
     /// Print the given `text` as QR code in the terminal.
@@ -159,45 +152,27 @@ impl Renderer {
     /// using color inversion (so "█" = " " inverted, and "▀" = "▄" inverted).
     /// "▄" seems to render better than "▅".
     fn black_above_white(&self) {
-        style("▄")
-            .with(Color::White)
-            .on(Color::Black)
-            .paint(&self.screen)
-            .expect("failed to paint QR code")
+        print!("{}", "▄".white().on_black());
     }
 
     /// Similar to `black_above_white`
     fn white_above_black(&self) {
-        style("▄")
-            .with(Color::Black)
-            .on(Color::White)
-            .paint(&self.screen)
-            .expect("failed to paint QR code")
+        print!("{}", "▄".black().on_white());
     }
 
     /// Similar to `black_above_white`
     fn black_above_black(&self) {
-        style(" ")
-            .with(Color::White)
-            .on(Color::Black)
-            .paint(&self.screen)
-            .expect("failed to paint QR code")
+        print!("{}", " ".white().on_black());
     }
 
     /// Similar to `black_above_white`
     fn white_above_white(&self) {
-        style(" ")
-            .with(Color::Black)
-            .on(Color::White)
-            .paint(&self.screen)
-            .expect("failed to paint QR code")
+        print!("{}", " ".black().on_white());
     }
 
     /// Print newline that does not mess up colors.
     fn newline(&mut self) {
-        style("\n")
-            .paint(&self.screen)
-            .expect("failed to paint QR code")
+        println!();
     }
 }
 
