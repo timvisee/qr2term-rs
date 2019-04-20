@@ -11,7 +11,7 @@
 //! use qr2term::print_qr;
 //!
 //! fn main() {
-//!     print_qr("https://rust-lang.org/");
+//!     print_qr("https://rust-lang.org/").unwrap();
 //! }
 //! ```
 //!
