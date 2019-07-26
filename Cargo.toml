@@ -24,5 +24,5 @@ name = "qr2term"
 path = "src/lib.rs"
 
 [dependencies]
-crossterm = { version = "0.9", default-features = false, features = ["style"] }
+crossterm = { version = "0.10", default-features = false, features = ["style"] }
 qrcode = { version = "0.10", default-features = false }
