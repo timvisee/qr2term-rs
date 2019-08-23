@@ -36,17 +36,17 @@ variables:
   stage: check
   script:
     - cargo check --verbose
-rust-stable:
+check-stable:
   <<: *check-base
-rust-beta:
+check-beta:
   <<: *check-base
   variables:
     RUST_VERSION: beta
-rust-nightly:
+check-nightly:
   <<: *check-base
   variables:
     RUST_VERSION: nightly
-rust-old:
+check-old:
   <<: *check-base
   variables:
     RUST_VERSION: "1.32.0"
@@ -54,6 +54,8 @@ rust-old:
 # Run the unit tests through Cargo
 cargo-test:
   stage: test
+  needs:
+    - check-stable
   script:
     - cargo test --verbose
 
