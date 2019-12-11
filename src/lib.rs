@@ -25,7 +25,7 @@
 //! - [https://crates.io/crates/qair](https://crates.io/crates/qair)
 //! - [https://code.willemp.be/willem/qair/src/branch/master/src/console_barcode_renderer.rs](https://code.willemp.be/willem/qair/src/branch/master/src/console_barcode_renderer.rs)
 
-use crossterm::Colorize;
+use crossterm::style::Colorize;
 pub use qrcode::types::QrError;
 use qrcode::{
     types::Color::{self as QrColor, Dark as QrDark, Light as QrLight},
