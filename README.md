@@ -19,10 +19,8 @@ and nothing else.
 
 [`example.rs`](./examples/example.rs):
 ```rust
-use qr2term::print_qr;
-
 fn main() {
-    print_qr("https://rust-lang.org/");
+    qr2term::print_qr("https://rust-lang.org/");
 }
 ```
 
