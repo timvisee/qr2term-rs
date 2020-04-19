@@ -1,7 +1,7 @@
 [package]
 name = "qr2term"
-version = "0.1.8"
-authors = ["Tim Visée <tim@visee.me>"]
+version = "0.2.0"
+authors = ["Tim Visée <3a4fb3964f@sinenomine.email>"]
 license = "MPL-2.0"
 readme = "README.md"
 homepage = "https://github.com/timvisee/qr2term-rs"
