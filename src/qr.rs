@@ -6,6 +6,7 @@ use super::QrError;
 use crate::Matrix;
 
 /// Raw QR code.
+#[allow(missing_debug_implementations)]
 pub struct Qr {
     code: QrCode,
 }

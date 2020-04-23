@@ -3,6 +3,7 @@
 use crate::util;
 
 /// A square 2D matrix representing a barcode.
+#[derive(Debug)]
 pub struct Matrix<T> {
     pixels: Vec<T>,
 }
