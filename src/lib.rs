@@ -30,7 +30,6 @@ pub mod qr;
 pub mod render;
 pub(crate) mod util;
 
-use qrcode::types::Color::Light as QrLight;
 pub use qrcode::types::QrError;
 
 use crate::matrix::Matrix;
@@ -58,7 +57,7 @@ const QUIET_ZONE_WIDTH: usize = 2;
 pub fn print_qr<D: AsRef<[u8]>>(data: D) -> Result<(), QrError> {
     // Generate QR code pixel matrix
     let mut matrix = qr::Qr::from(data)?.to_matrix();
-    matrix.surround(QUIET_ZONE_WIDTH, QrLight);
+    matrix.surround(QUIET_ZONE_WIDTH, render::QrLight);
 
     // Render QR code to stdout
     Renderer::default().print_stdout(&matrix);
