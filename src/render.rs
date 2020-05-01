@@ -109,12 +109,12 @@ mod tests {
 
     mod size_tracker {
         //! Tracks how many newlines and character per line are written
-    
-        use std::io::Write;
+
         use regex::Regex;
-        
+        use std::io::Write;
+
         pub struct SizeTracker {
-            data: Vec<u8>
+            data: Vec<u8>,
         }
 
         impl Write for SizeTracker {
@@ -132,7 +132,7 @@ mod tests {
             pub fn new() -> Self {
                 SizeTracker { data: vec![] }
             }
-            
+
             fn without_ansi_codes(text: &str) -> String {
                 let regex = Regex::new("\x1B\\[.*?m").unwrap();
                 regex.replace_all(text, "").to_string()
@@ -147,7 +147,11 @@ mod tests {
                 }
                 let data_str = std::str::from_utf8(&self.data).unwrap();
                 let without_ansi_codes = Self::without_ansi_codes(data_str);
-                without_ansi_codes.split("\n").map(|line| line.chars().count()).max().unwrap()
+                without_ansi_codes
+                    .split("\n")
+                    .map(|line| line.chars().count())
+                    .max()
+                    .unwrap()
             }
 
             pub fn height(&self) -> usize {
@@ -185,9 +189,9 @@ mod tests {
         helper_width_and_height(vec![], 0, 0);
         helper_width_and_height(vec![QrDark], 1, 1);
         helper_width_and_height(vec![QrDark, QrLight, QrLight, QrDark], 2, 1);
-        helper_width_and_height(vec![QrDark; 3*3], 3, 2);
-        helper_width_and_height(vec![QrLight; 4*4], 4, 2);
-        helper_width_and_height(vec![QrLight; 5*5], 5, 3);
-        helper_width_and_height(vec![QrDark; 21*21], 21, 11);
+        helper_width_and_height(vec![QrDark; 3 * 3], 3, 2);
+        helper_width_and_height(vec![QrLight; 4 * 4], 4, 2);
+        helper_width_and_height(vec![QrLight; 5 * 5], 5, 3);
+        helper_width_and_height(vec![QrDark; 21 * 21], 21, 11);
     }
 }
