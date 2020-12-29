@@ -1,6 +1,6 @@
 [package]
 name = "qr2term"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Tim Visée <3a4fb3964f@sinenomine.email>"]
 license = "MPL-2.0"
 readme = "README.md"
