@@ -48,7 +48,7 @@ check-old:
   <<: *check-base
   allow_failure: true
   variables:
-    RUST_VERSION: "1.37.0"
+    RUST_VERSION: "1.43.0"
 
 # Run the unit tests through Cargo
 cargo-test:
