@@ -7,7 +7,7 @@ pub use qrcode::types::Color::{self, Dark as QrDark, Light as QrLight};
 
 use crate::matrix::Matrix;
 
-///! QR barcode terminal renderer intended for terminals.
+/// QR barcode terminal renderer intended for terminals.
 #[derive(Debug)]
 pub struct Renderer {}
 
