@@ -2,7 +2,7 @@
 
 use std::io::{self, Result as IoResult, Write};
 
-use crossterm::style::Colorize;
+use crossterm::style::Stylize;
 pub use qrcode::types::Color::{self, Dark as QrDark, Light as QrLight};
 
 use crate::matrix::Matrix;
