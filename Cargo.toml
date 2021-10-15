@@ -16,9 +16,6 @@ categories = [
 ]
 edition = "2018"
 
-[badges]
-gitlab = { repository = "timvisee/qr2term-rs", branch = "master" }
-
 [lib]
 name = "qr2term"
 path = "src/lib.rs"
