@@ -63,3 +63,27 @@ pub fn print_qr<D: AsRef<[u8]>>(data: D) -> Result<(), QrError> {
     Renderer::default().print_stdout(&matrix);
     Ok(())
 }
+
+/// Generate String from the given `data` as QR code.
+///
+/// Returns an error if generating the QR code failed.
+///
+/// # Examples
+///
+/// ```rust
+/// qr2term::generate_qr("https://rust-lang.org/").unwrap();
+/// ```
+///
+/// # Panics
+///
+/// Panics if printing the QR code to the terminal failed.
+pub fn generate_qr<D: AsRef<[u8]>>(data: D) -> Result<String, QrError> {
+    // Generate QR code pixel matrix
+    let mut matrix = qr::Qr::from(data)?.to_matrix();
+    matrix.surround(QUIET_ZONE_WIDTH, render::QrLight);
+
+    // Render QR code to a String
+    let mut buf = Vec::new();
+    Renderer::default().render(&matrix, &mut buf);
+    Ok(String::from_utf8(buf).unwrap())
+}
