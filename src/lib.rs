@@ -64,19 +64,20 @@ pub fn print_qr<D: AsRef<[u8]>>(data: D) -> Result<(), QrError> {
     Ok(())
 }
 
-/// Generate String from the given `data` as QR code.
+/// Generate `String` from the given `data` as QR code.
 ///
 /// Returns an error if generating the QR code failed.
 ///
 /// # Examples
 ///
 /// ```rust
-/// qr2term::generate_qr_string("https://rust-lang.org/").unwrap();
+/// let qr_string = qr2term::generate_qr_string("https://rust-lang.org/").unwrap();
+/// print!("{}", qr_string);
 /// ```
 ///
 /// # Panics
 ///
-/// Panics if printing the QR code to the terminal failed.
+/// Panics if generating the QR code string failed.
 pub fn generate_qr_string<D: AsRef<[u8]>>(data: D) -> Result<String, QrError> {
     // Generate QR code pixel matrix
     let mut matrix = qr::Qr::from(data)?.to_matrix();
