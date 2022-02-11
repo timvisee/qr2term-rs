@@ -10,9 +10,7 @@
 //! # Examples
 //! [`example.rs`](./example/example.rs):
 //! ```rust
-//! fn main() {
-//!     qr2term::print_qr("https://rust-lang.org/").unwrap();
-//! }
+//! qr2term::print_qr("https://rust-lang.org/").unwrap();
 //! ```
 //!
 //! ![qr2term example screenshot](./res/qr2term-example.png)

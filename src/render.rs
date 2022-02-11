@@ -8,7 +8,7 @@ pub use qrcode::types::Color::{self, Dark as QrDark, Light as QrLight};
 use crate::matrix::Matrix;
 
 /// QR barcode terminal renderer intended for terminals.
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct Renderer {}
 
 impl Renderer {
@@ -55,12 +55,12 @@ impl Renderer {
 
     /// How many horizontal characters or columns in the terminal it takes to render `matrix`.
     pub fn width(&self, matrix: &Matrix<Color>) -> usize {
-        return matrix.size();
+        matrix.size()
     }
 
     /// How many vertical characters or rows or lines in the terminal it takes to render `matrix`.
     pub fn height(&self, matrix: &Matrix<Color>) -> usize {
-        return matrix.size() / 2 + matrix.size() % 2;
+        matrix.size() / 2 + matrix.size() % 2
     }
 
     /// Terminal-format and print one character that show a black pixel above a white pixel.
@@ -94,12 +94,6 @@ impl Renderer {
     /// Print newline that does not mess up colors.
     fn newline<W: Write>(&self, target: &mut W) -> IoResult<()> {
         writeln!(target)
-    }
-}
-
-impl Default for Renderer {
-    fn default() -> Self {
-        Self {}
     }
 }
 
