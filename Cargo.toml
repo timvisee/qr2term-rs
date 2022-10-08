@@ -14,7 +14,8 @@ categories = [
     "rendering",
     "visualization",
 ]
-edition = "2018"
+edition = "2021"
+rust-version = "1.56"
 
 [lib]
 name = "qr2term"
@@ -25,7 +26,7 @@ crossterm = { version = "0.24", default-features = false }
 qrcode = { version = "0.12", default-features = false }
 
 [dev-dependencies]
-regex = "1"
+regex = { version = "1", default-features = false, features = ["std"] }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
