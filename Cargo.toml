@@ -14,7 +14,8 @@ categories = [
     "rendering",
     "visualization",
 ]
-edition = "2018"
+edition = "2021"
+rust-version = "1.56"
 
 [lib]
 name = "qr2term"
