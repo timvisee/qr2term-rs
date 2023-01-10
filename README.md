@@ -30,6 +30,12 @@ This library is based on [`qair`](https://code.willemp.be/willem/qair),
 which didn't provide the renderer as a library on it's own.
 Credits for the actual renderer go to it's developer.
 
+To read a text from the command line and encode it in QR form, run:
+
+```bash
+$ echo HelloWorld | cargo run --example example-read
+```
+
 ## License
 This project is licensed under the MPL 2.0 license.
 Check out the [LICENSE](LICENSE) file for more information.
