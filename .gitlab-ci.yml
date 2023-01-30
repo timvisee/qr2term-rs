@@ -46,7 +46,6 @@ check-nightly:
     RUST_VERSION: nightly
 check-msrv:
   <<: *check-base
-  allow_failure: true
   variables:
     RUST_VERSION: "1.58.1"
 
