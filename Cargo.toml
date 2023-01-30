@@ -22,7 +22,7 @@ name = "qr2term"
 path = "src/lib.rs"
 
 [dependencies]
-crossterm = { version = "0.25", default-features = false }
+crossterm = { version = "0.26", default-features = false }
 qrcode = { version = "0.12", default-features = false }
 
 [dev-dependencies]
