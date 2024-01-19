@@ -36,6 +36,12 @@ To read a text from the command line and encode it in QR form, run:
 $ echo HelloWorld | cargo run --example example-read
 ```
 
+To create WiFi credentials in QR form, run:
+
+```bash
+$ echo HelloWorld | cargo run --example example-wifi
+```
+
 ## License
 This project is licensed under the MPL 2.0 license.
 Check out the [LICENSE](LICENSE) file for more information.
