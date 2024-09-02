@@ -34,6 +34,6 @@ mod tests {
     #[test]
     #[should_panic]
     fn print_qr_too_long() {
-        Qr::from(&String::from_utf8(vec![b'a'; 8000]).unwrap()).unwrap();
+        Qr::from(String::from_utf8(vec![b'a'; 8000]).unwrap()).unwrap();
     }
 }

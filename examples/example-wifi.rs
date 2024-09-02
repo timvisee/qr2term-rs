@@ -1,3 +1,4 @@
+#[allow(clippy::incompatible_msrv)]
 fn main() {
     println!("WiFi network name: ");
     let wifi_network = std::io::stdin().lines().next().unwrap().unwrap();
@@ -11,7 +12,8 @@ fn main() {
         _network_type
     };
 
-    let input = "WIFI:S:".to_string() + &wifi_network + ";T:" + &network_type + ";P:" + &pass + ";;";
+    let input =
+        "WIFI:S:".to_string() + &wifi_network + ";T:" + &network_type + ";P:" + &pass + ";;";
 
     qr2term::print_qr(input).unwrap();
 }
