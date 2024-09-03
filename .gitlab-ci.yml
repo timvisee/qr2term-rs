@@ -47,7 +47,7 @@ check-nightly:
 check-msrv:
   <<: *check-base
   variables:
-    RUST_VERSION: "1.62.1"
+    RUST_VERSION: "1.67.1"
 
 # Run the unit tests through Cargo
 cargo-test:
