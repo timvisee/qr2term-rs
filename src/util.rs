@@ -7,7 +7,7 @@
 pub fn usize_sqrt(num: usize) -> usize {
     let sqrt = (num as f64).sqrt() as usize;
     assert_eq!(num, sqrt * sqrt, "given number isn't a perfect square");
-    sqrt as usize
+    sqrt
 }
 
 #[cfg(test)]

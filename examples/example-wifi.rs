@@ -11,7 +11,8 @@ fn main() {
         _network_type
     };
 
-    let input = "WIFI:S:".to_string() + &wifi_network + ";T:" + &network_type + ";P:" + &pass + ";;";
+    let input =
+        "WIFI:S:".to_string() + &wifi_network + ";T:" + &network_type + ";P:" + &pass + ";;";
 
     qr2term::print_qr(input).unwrap();
 }

@@ -136,7 +136,7 @@ mod tests {
             ///
             /// Panics if data seen by tracker is not valid UTF-8.
             pub fn width(&self) -> usize {
-                if self.data.len() == 0 {
+                if self.data.is_empty() {
                     return 0;
                 }
                 let data_str = std::str::from_utf8(&self.data).unwrap();
