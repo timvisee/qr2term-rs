@@ -1,4 +1,3 @@
-#[allow(clippy::incompatible_msrv)]
 fn main() {
     println!("WiFi network name: ");
     let wifi_network = std::io::stdin().lines().next().unwrap().unwrap();
