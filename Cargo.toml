@@ -1,6 +1,6 @@
 [package]
 name = "qr2term"
-version = "0.3.2"
+version = "0.3.3"
 authors = ["Tim Visée <3a4fb3964f@sinenomine.email>"]
 license = "MPL-2.0"
 readme = "README.md"
@@ -9,13 +9,12 @@ repository = "https://github.com/timvisee/qr2term-rs"
 documentation = "https://docs.rs/qr2term"
 description = "Stupidly simple Rust crate to render a QR code in the terminal."
 keywords = ["qrcode", "terminal", "qr", "code"]
-categories = [
-    "algorithms",
-    "rendering",
-    "visualization",
-]
+categories = ["algorithms", "rendering", "visualization"]
 edition = "2021"
 rust-version = "1.67.1"
+
+[features]
+windows = ["crossterm/windows"]
 
 [lib]
 name = "qr2term"
