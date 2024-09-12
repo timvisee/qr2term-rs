@@ -1,6 +1,6 @@
 [package]
 name = "qr2term"
-version = "0.3.3"
+version = "0.3.2"
 authors = ["Tim Visée <3a4fb3964f@sinenomine.email>"]
 license = "MPL-2.0"
 readme = "README.md"
@@ -13,19 +13,22 @@ categories = ["algorithms", "rendering", "visualization"]
 edition = "2021"
 rust-version = "1.67.1"
 
-[features]
-windows = ["crossterm/windows"]
-
 [lib]
 name = "qr2term"
 path = "src/lib.rs"
 
 [dependencies]
-crossterm = { version = "0.28", default-features = false }
+crossterm = { version = "0.28", default-features = false, features = [
+    "windows",
+] }
 qrcode = { version = "0.14", default-features = false }
 
 [dev-dependencies]
 regex = { version = "1", default-features = false, features = ["std"] }
+
+[target.'cfg(windows)'.dependencies.crossterm]
+version = "0.28"
+features = ["windows"]
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
