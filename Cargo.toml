@@ -9,11 +9,7 @@ repository = "https://github.com/timvisee/qr2term-rs"
 documentation = "https://docs.rs/qr2term"
 description = "Stupidly simple Rust crate to render a QR code in the terminal."
 keywords = ["qrcode", "terminal", "qr", "code"]
-categories = [
-    "algorithms",
-    "rendering",
-    "visualization",
-]
+categories = ["algorithms", "rendering", "visualization"]
 edition = "2021"
 rust-version = "1.67.1"
 
@@ -22,7 +18,9 @@ name = "qr2term"
 path = "src/lib.rs"
 
 [dependencies]
-crossterm = { version = "0.28", default-features = false }
+crossterm = { version = "0.28", default-features = false, features = [
+    "windows",
+] }
 qrcode = { version = "0.14", default-features = false }
 
 [dev-dependencies]
